@@ -38,6 +38,31 @@ body {
   width: 90%;
   margin: 0 auto;
 }
+/* hero content */
+.hero-outer {
+  position: relative;
+  height: 100vh;
+}
+  .hero-inner {
+    padding: 100px 5% 0 5%;
+    width: 100%;
+    height: fit-content;
+    overflow: hidden;
+    margin: auto 0;
+    position: absolute;
+    top: 0;
+    bottom: 100px;
+    right: 0;
+    left: 0;
+  }
+    .hero-img {
+      width: 85%;
+      margin-left: 15%;
+      display: inline-block;
+    }
+    .hero-sm {
+      display: none;
+    }
 
 /* nav */
 .top-nav {
@@ -367,4 +392,90 @@ body {
   max-height: 100vh;
   overflow: hidden;
   /* position: relative; */
+}
+
+@media screen and (min-width: 200px) and (max-width:850px) {
+  .hero-inner {
+    flex-direction: column;
+    bottom: 0;
+    margin: 0;
+  }
+    .hero-inner > section {
+      padding: 0;
+      margin: 0 auto;
+      width: 100%;
+    }
+      .heading {
+        font-size: 2rem;
+        text-align: center;
+      }
+      .info, .btn-container, .nav-right {
+        display: none;
+      }
+    .hero-inner img {
+      width: 80%;
+      margin: 0 10%;
+      padding: 0;
+    }
+      .hero-sm {
+        display: block;
+      }
+}
+
+@media screen and (min-width:851px) and (max-width:1000px) {
+  .hero-inner {
+    margin: 5rem 0 0 0;
+  }
+  .heading {
+    font-size: 2.75rem;
+  }
+  .info {
+    font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1200px) {
+    .heading {
+      font-size: 3rem;
+    }
+    .info {
+      font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 1201px) and (max-width: 1500px) {
+    .heading {
+      font-size: 3.25rem;
+      margin: 2rem 0;
+    }
+    .info {
+      font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 1900px) {
+  .heading {
+    font-size: 4.25rem;
+  }
+
+  .info {
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .btn {
+    font-size: 1.15rem;
+  }
+}
+
+@media screen and (min-width: 1901px) {
+  .heading {
+    font-size: 6rem;
+  }
+
+  .info {
+    font-size: 1.65rem;
+  }
+  .btn {
+    font-size: 1.25rem;
+  }
 }
