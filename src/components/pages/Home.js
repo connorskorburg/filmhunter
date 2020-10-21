@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import hero from '../layout/images/hero.svg';
+import Contact from '../layout/Contact';
+import Hero from '../layout/Hero';
 import Movie from '../movies/Movie';
 import Show from '../shows/Show';
 import axios from 'axios';
@@ -36,40 +37,22 @@ const Home = () => {
 
   return (
     <>
-      <div className='flex hero-outer' >
-        <main className='hero-inner'>
-          <section className="w-50" style={{ verticalAlign: 'top' }}>
-            <h1 className='text-primary heading mb-2'>Find Your Favorite Films and Shows</h1>
-            <p className="info text-secondary-dark font-bold mb-2">Search for most popular and latest Movies and Television shows</p>
-            <div className="btn-container">
-              <button className="btn btn-secondary mr-1">Movies</button>
-              <button className="btn btn-primary">TV Shows</button>
-            </div>
-          </section>
-          <section style={{ flex: '1' }} className='w-50'>
-            <img src={hero} alt="" className='hero-img' />
-            <article className="hero-sm">
-              <p className="text-secondary-dark font-bold my-2 ta-center font-l">Search for most popular and latest Movies and Television shows</p>
-              <button className="btn btn-block btn-secondary mb-1">Movies</button>
-              <button className="btn btn-block btn-primary">TV Shows</button>
-            </article>
-          </section>
-        </main>
-      </div>
+      <Hero />
       {/* latest movies will be moved to a new component */}
-      <main className="bg-primary">
-        <h1 className='ta-center text-white pt-3 pb-2 sub-heading' style={{ borderBottom: '2px solid var(--white)' }}>New Releases</h1>
+      <main className="bg-primary mb-4">
+        <h1 className='ta-center text-white pt-4 pb-2 sub-heading' style={{ borderBottom: '2px solid var(--white)' }}>New Releases</h1>
         <div className="container grid grid-col-4 gap-1 py-2">
           {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
         </div>
       </main>
       {/* newest TV Shows will be moved to a new component */}
-      <main className="bgColor">
-        <h1 className="ta-center text-secondary pt-3 pb-2 sub-heading" style={{ borderBottom: '2px solid var(--secondary)' }}>Latest Shows</h1>
+      <main className="bgColor mb-4">
+        <h1 className="ta-center text-secondary pt-4 pb-2 sub-heading" style={{ borderBottom: '2px solid var(--secondary)' }}>Latest Shows</h1>
         <div className="container grid grid-col-4 gap-1 py-2">
           {shows.map((show) => <Show key={show.id} show={show} />)}
         </div>
       </main>
+      <Contact />
     </>
   )
 }

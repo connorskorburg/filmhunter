@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Movie = ({ movie: { id, original_title, poster_path, overview, release_date } }) => {
+const Movie = ({ movie: { id, original_title, poster_path, release_date } }) => {
 
   const hoverImg = (id) => {
     document.querySelector(`.card-${id} h3`).style.display = 'block';
     document.querySelector(`.card-${id} h4`).style.display = 'block';
     document.querySelector(`.card-${id}`).style.backgroundColor = '#fff';
-    document.querySelector(`.poster-img-${id}`).style.opacity = '0.5';
+    document.querySelector(`.poster-img-${id}`).style.opacity = '0.7';
   }
 
   const hoverImgClose = (id) => {
