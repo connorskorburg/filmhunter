@@ -58,14 +58,14 @@ const Home = () => {
       </div>
       {/* latest movies will be moved to a new component */}
       <main className="bg-primary">
-        <h1 className='ta-center text-white pt-3 pb-2'>New Releases</h1>
+        <h1 className='ta-center text-white pt-3 pb-2 sub-heading' style={{ borderBottom: '2px solid var(--white)' }}>New Releases</h1>
         <div className="container grid grid-col-4 gap-1 py-2">
           {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
         </div>
       </main>
       {/* newest TV Shows will be moved to a new component */}
       <main className="bgColor">
-        <h1 className="ta-center text-secondary pt-3 pb-2">Latest Shows</h1>
+        <h1 className="ta-center text-secondary pt-3 pb-2 sub-heading" style={{ borderBottom: '2px solid var(--secondary)' }}>Latest Shows</h1>
         <div className="container grid grid-col-4 gap-1 py-2">
           {shows.map((show) => <Show key={show.id} show={show} />)}
         </div>
