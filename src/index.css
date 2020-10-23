@@ -411,6 +411,21 @@ a {
 }
 
 
+.loading {
+  border: 20px solid var(--primary);
+  border-top: 20px solid var(--white);
+  border-bottom: 20px solid var(--white);
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  animation: loader 2000ms linear infinite;
+}
+
+@keyframes loader {
+  0% { transform: rotate(0);}
+  100% { transform: rotate(360deg);}
+}
 
 /* media queries */
 

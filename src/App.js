@@ -13,17 +13,8 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
 
-  // const movie_db_key = process.env.REACT_APP_MOVIE_DB_KEY;
-  // const omdb_key = process.env.REACT_APP_OMDB_KEY;
-
   // Get movie by ID
   // const url = `https://api.themoviedb.org/3/movie/337401?api_key=${movie_db_key}&language=en-US`
-
-  // Get most popular movies
-  // const url = `https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=${movie_db_key}`
-
-  //Get now playing movies
-  // const url = `https://api.themoviedb.org/3/movie/now_playing?api_key=${movie_db_key}&language=en-US&page=1`
 
   //Get most popular TV Shows
   // const url = `https://api.themoviedb.org/3/tv/popular?api_key=${movie_db_key}`
@@ -33,16 +24,6 @@ function App() {
 
   // Get latest TV Shows
   //const url = `https://api.themoviedb.org/3/tv/latest?api_key=${movie_db_key}&language=en-US`
-
-
-  // const fetchPopularMovies = async (url) => {
-  //   const response = await axios.get(url);
-  //   console.log(response.data);
-  // }
-
-  // useEffect(() => {
-  //   fetchPopularMovies(url);
-  // }, [url])
 
 
   return (

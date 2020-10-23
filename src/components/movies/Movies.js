@@ -1,18 +1,20 @@
 import React, { useEffect, useContext } from 'react';
-import Movie from './Movie';
+import MovieItem from './MovieItem';
 import MovieContext from '../../context/movie/movieContext';
+import Loading from '../layout/Loading';
 
 const Movies = () => {
 
   const movieContext = useContext(MovieContext);
 
-  const { fetchPopularMovies, movies, searchMovie, movie, setMovie } = movieContext;
-
+  const { fetchPopularMovies, movies, searchMovie, movie, setMovie, loading, setLoading } = movieContext;
 
   useEffect(() => {
     if (movie !== '') {
+      setLoading();
       searchMovie(movie);
     } else {
+      setLoading();
       fetchPopularMovies();
     }
   }, [])
@@ -25,7 +27,18 @@ const Movies = () => {
 
   const onClick = (e) => {
     e.preventDefault();
+    setLoading();
     searchMovie(movie);
+  }
+
+  let content;
+
+  if (loading) {
+    content = <Loading />;
+  } else {
+    content = <div className="container grid grid-col-4 gap-1 py-2">
+      {movies.map((movie) => <MovieItem key={movie.id} movie={movie} />)}
+    </div>
   }
 
   return (
@@ -35,9 +48,7 @@ const Movies = () => {
         <input style={inputStyle} className='mt-2' type="text" placeholder='Search...' value={movie} onChange={(e) => onChange(e)} />
         <button className="mt-2 btn btn-block btn-primary" onClick={(e) => onClick(e)}>Search</button>
       </div>
-      <div className="container grid grid-col-4 gap-1 py-2">
-        {movies.map((movie) => <Movie key={movie.id} movie={movie} />)}
-      </div>
+      { content}
     </main>
   )
 }

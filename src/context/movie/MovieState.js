@@ -3,7 +3,7 @@ import axios from 'axios';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 
-import { SEARCH_MOVIES, GET_LATEST_MOVIES, SET_MOVIE } from '../types';
+import { SEARCH_MOVIES, GET_LATEST_MOVIES, SET_MOVIE, SET_LOADING } from '../types';
 
 
 const MovieState = (props) => {
@@ -11,6 +11,7 @@ const MovieState = (props) => {
     latestMovies: [],
     movies: [],
     movie: '',
+    loading: false,
   }
 
   const [state, dispatch] = useReducer(MovieReducer, initialState);
@@ -43,6 +44,9 @@ const MovieState = (props) => {
     dispatch({ type: SET_MOVIE, payload: movie })
   }
 
+  //set loading
+  const setLoading = () => dispatch({ type: SET_LOADING })
+
 
 
   return (
@@ -51,10 +55,12 @@ const MovieState = (props) => {
         latestMovies: state.latestMovies,
         movies: state.movies,
         movie: state.movie,
+        loading: state.loading,
         fetchLatestMovies,
         fetchPopularMovies,
         searchMovie,
-        setMovie
+        setMovie,
+        setLoading,
       }}
     >
       {props.children}
