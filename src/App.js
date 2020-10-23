@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import './index.css';
-import axios from 'axios';
+
+import Movies from './components/movies/Movies';
 // layout components
 import Navbar from './components/layout/Navbar';
 //pages
 import Home from './components/pages/Home';
+//context state
+import MovieState from './context/movie/MovieState';
+
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 function App() {
 
-  const movie_db_key = process.env.REACT_APP_MOVIE_DB_KEY;
+  // const movie_db_key = process.env.REACT_APP_MOVIE_DB_KEY;
   // const omdb_key = process.env.REACT_APP_OMDB_KEY;
 
   // Get movie by ID
@@ -42,12 +46,17 @@ function App() {
 
 
   return (
-    <Router>
-      <div className="App">
-        <Navbar />
-        <Home />
-      </div>
-    </Router>
+    <MovieState>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route exact path="/movies" component={Movies} />
+          </Switch>
+        </div>
+      </Router>
+    </MovieState>
   );
 }
 

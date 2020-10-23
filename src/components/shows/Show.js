@@ -6,7 +6,7 @@ const Movie = ({ show: { id, original_name, poster_path, first_air_date } }) => 
     document.querySelector(`.card-${id} h3`).style.display = 'block';
     document.querySelector(`.card-${id} h4`).style.display = 'block';
     document.querySelector(`.card-${id}`).style.backgroundColor = '#fff';
-    document.querySelector(`.poster-img-${id}`).style.opacity = '0.5';
+    document.querySelector(`.poster-img-${id}`).style.opacity = '0.3';
   }
 
   const hoverImgClose = (id) => {
