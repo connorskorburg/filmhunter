@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Movie = ({ movie: { id, original_title, poster_path, release_date } }) => {
 
@@ -17,7 +18,7 @@ const Movie = ({ movie: { id, original_title, poster_path, release_date } }) => 
   }
 
   return (
-    <div className={`card bg-secondary card-${id}`} onMouseEnter={() => hoverImg(id)} onMouseLeave={() => hoverImgClose(id)}>
+    <Link to={`/movies/${id}`} className={`card bg-secondary card-${id}`} onMouseEnter={() => hoverImg(id)} onMouseLeave={() => hoverImgClose(id)}>
       <article className='card-content'>
         <div className="card-content-inner" style={{ zIndex: '100' }}>
           <h3 className='ta-center info'>{original_title}</h3>
@@ -25,7 +26,7 @@ const Movie = ({ movie: { id, original_title, poster_path, release_date } }) => 
         </div>
       </article>
       <img className={`poster-img poster-img-${id}`} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={original_title} />
-    </div>
+    </Link>
   )
 }
 

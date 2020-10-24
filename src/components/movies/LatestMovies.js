@@ -12,6 +12,7 @@ const LatestMovies = () => {
   useEffect(() => {
     setLoading();
     fetchLatestMovies();
+    //eslint-disable-next-line
   }, [])
 
   let content;

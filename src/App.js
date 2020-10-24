@@ -2,6 +2,7 @@ import React from 'react';
 import './index.css';
 
 import Movies from './components/movies/Movies';
+import Movie from './components/movies/Movie';
 // layout components
 import Navbar from './components/layout/Navbar';
 //pages
@@ -34,6 +35,7 @@ function App() {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/movies" component={Movies} />
+            <Route exact path='/movies/:id' component={Movie} />
           </Switch>
         </div>
       </Router>

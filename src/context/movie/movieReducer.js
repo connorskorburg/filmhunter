@@ -1,4 +1,4 @@
-import { SEARCH_MOVIES, GET_LATEST_MOVIES, SET_MOVIE, SET_LOADING } from '../types';
+import { SEARCH_MOVIES, GET_LATEST_MOVIES, SET_MOVIE, GET_MOVIE, SET_LOADING } from '../types';
 
 export default (state, action) => {
   switch (action.type) {
@@ -15,6 +15,12 @@ export default (state, action) => {
         loading: false,
       }
     case SET_MOVIE:
+      return {
+        ...state,
+        query: action.payload,
+        loading: false,
+      }
+    case GET_MOVIE:
       return {
         ...state,
         movie: action.payload,

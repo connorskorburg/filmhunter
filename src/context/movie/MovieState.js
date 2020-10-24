@@ -3,14 +3,15 @@ import axios from 'axios';
 import MovieContext from './movieContext';
 import MovieReducer from './movieReducer';
 
-import { SEARCH_MOVIES, GET_LATEST_MOVIES, SET_MOVIE, SET_LOADING } from '../types';
+import { SEARCH_MOVIES, GET_LATEST_MOVIES, SET_MOVIE, SET_LOADING, GET_MOVIE } from '../types';
 
 
 const MovieState = (props) => {
   const initialState = {
     latestMovies: [],
     movies: [],
-    movie: '',
+    movie: {},
+    query: '',
     loading: false,
   }
 
@@ -21,7 +22,6 @@ const MovieState = (props) => {
   const fetchLatestMovies = async () => {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}& language=en-US&page=1`);
     const data = response.data.results.filter((r) => r['poster_path'] !== null);
-    console.log("RESPONSE", data);
     dispatch({ type: GET_LATEST_MOVIES, payload: data })
   }
 
@@ -39,9 +39,15 @@ const MovieState = (props) => {
     dispatch({ type: SEARCH_MOVIES, payload: data })
   }
 
-  // Set Movie 
-  const setMovie = (movie) => {
-    dispatch({ type: SET_MOVIE, payload: movie })
+  // Set Movie Query  
+  const setQuery = (query) => dispatch({ type: SET_MOVIE, payload: query })
+
+  //get movie by id 
+  const getMovie = async (id) => {
+    const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`);
+    console.log('GET MOVIE RESPONSE', response.data);
+    const data = response.data;
+    dispatch({ type: GET_MOVIE, payload: data })
   }
 
   //set loading
@@ -55,12 +61,14 @@ const MovieState = (props) => {
         latestMovies: state.latestMovies,
         movies: state.movies,
         movie: state.movie,
+        query: state.query,
         loading: state.loading,
         fetchLatestMovies,
         fetchPopularMovies,
         searchMovie,
-        setMovie,
+        setQuery,
         setLoading,
+        getMovie,
       }}
     >
       {props.children}
