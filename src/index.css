@@ -14,6 +14,7 @@
   --secondary-dark: #10533f;
   --secondary-light: #35f1b9;
   --bgColor: #f8f8f8;
+  --bgColor: #ecf5f9;
   --white: #fff;
   --black: #000;
   --box-shadow-1: 1px 1px 2px rgba(0,0,0,0.2);
@@ -86,6 +87,10 @@ body {
 .info {
   font-size: 1.5rem;
 }
+
+.text-head { font-size: 1.5rem ;}
+.text-head-m { font-size: 1.25rem ;}
+
 a { text-decoration: none; }
 li { list-style-type: none; }
 
@@ -178,6 +183,7 @@ li { list-style-type: none; }
 
 .bg-white { background-color: var(--white);}
 .bg-dark { background-color: var(--black);}
+.bg {background-color: var(--bgColor);}
 
 .bg-primary { background-color: var(--primary);}
 .bg-primary-light { background-color: var(--primary-light);}
@@ -427,68 +433,45 @@ li { list-style-type: none; }
         font-size: 2rem;
         text-align: center;
       }
-      .sub-heading {
-        font-size: 1.5rem;
-      }
-      .info, .btn-container, .nav-right {
-        display: none;
-      }
+      .sub-heading { font-size: 1.5rem; }
+      .info, .btn-container, .nav-right { display: none; }
+
     .hero-inner img {
       width: 80%;
       margin: 0 10%;
       padding: 0;
     }
-      .hero-sm {
-        display: block;
-      }
+      .hero-sm { display: block; }
 }
 
 @media screen and (min-width: 200px) and (max-width: 500px) {
-  .grid-col-4 {
-    grid-template-columns: repeat(1, 1fr);
-  }
+  .grid-col-4 { grid-template-columns: repeat(1, 1fr); }
 }
 
 @media screen and (min-width: 501px) and (max-width: 850px) {
-  .grid-col-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  .grid-col-4 { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media screen and (min-width:851px) and (max-width:1000px) {
-  .grid-col-4 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-  .hero-inner {
-    margin: 5rem 0 0 0;
-  }
-  .heading {
-    font-size: 2.75rem;
-  }
-  .sub-heading {
-    font-size: 1.75rem;
-  }
-  .info {
-    font-size: 1.25rem;
-  }
+  .grid-col-4 { grid-template-columns: repeat(3, 1fr); }
+  .hero-inner { margin: 5rem 0 0 0; }
+  .heading { font-size: 2.75rem; }
+  .sub-heading { font-size: 1.75rem; }
+  .info { font-size: 1.25rem; }
+  .text-head  {font-size: 1.25rem; }
+  .text-head-m { font-size: 1.15rem; }
 }
 
 @media screen and (min-width:1001px) {
-  .grid-col-4 {
-    grid-template-columns: repeat(4, 1fr);
-  }
+  .grid-col-4 { grid-template-columns: repeat(4, 1fr); }
 }
 
 @media screen and (min-width: 1001px) and (max-width: 1200px) {
-  .heading {
-    font-size: 3rem;
-  }
-  .sub-heading {
-    font-size: 2.15rem;
-  }
-  .info {
-    font-size: 1.25rem;
-  }
+  .heading { font-size: 3rem; }
+  .sub-heading { font-size: 2.15rem; }
+  .info { font-size: 1.25rem; }
+  .text-head { font-size: 1.25rem; }
+  .text-head-m { font-size: 1.15rem; }
 }
 
 @media screen and (min-width: 1201px) and (max-width: 1500px) {
@@ -496,42 +479,29 @@ li { list-style-type: none; }
     font-size: 3.25rem;
     margin: 2rem 0;
   }
-  .sub-heading {
-    font-size: 2.5rem;
-  }
-  .info {
-    font-size: 1.25rem;
-  }
+  .sub-heading { font-size: 2.5rem; }
+  .info { font-size: 1.25rem; }
+  .text-head { font-size: 1.25rem; }
+  .text-head-m { font-size: 1.15rem; }
 }
 
 @media screen and (min-width: 1600px) and (max-width: 1900px) {
-  .heading {
-    font-size: 4.25rem;
-  }
-  .sub-heading {
-    font-size: 3rem;
-  }
+  .heading { font-size: 4.25rem; }
+  .sub-heading { font-size: 3rem; }
   .info {
     font-size: 1.5rem;
     margin-bottom: 3rem;
   }
-  .btn {
-    font-size: 1.15rem;
-  }
+  .btn { font-size: 1.15rem; }
+  .text-head { font-size: 1.5rem; }
+  .text-head-m { font-size: 1.25rem; }
 }
 
 @media screen and (min-width: 1901px) {
-  .heading {
-    font-size: 6rem;
-  }
-  .sub-heading {
-    font-size: 3rem;
-  }
-
-  .info {
-    font-size: 1.65rem;
-  }
-  .btn {
-    font-size: 1.25rem;
-  }
+  .heading {font-size: 6rem; }
+  .sub-heading { font-size: 3rem; }
+  .info { font-size: 1.65rem; }
+  .text-head { font-size: 1.65rem;}
+  .text-head-m { font-size: 1.4rem; }
+  .btn { font-size: 1.25rem; }
 }
