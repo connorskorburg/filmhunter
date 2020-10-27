@@ -14,6 +14,23 @@ export default (state, action) => {
         shows: action.payload,
         loading: false,
       }
+    case GET_SHOW:
+      return {
+        ...state,
+        show: action.payload,
+        loading: false,
+      }
+    case SET_SHOW:
+      return {
+        ...state,
+        query: action.payload,
+        loading: false,
+      }
+    case SET_LOADING:
+      return {
+        ...state,
+        loading: true,
+      }
     default:
       return state;
   }

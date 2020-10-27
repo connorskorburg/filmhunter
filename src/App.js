@@ -15,20 +15,6 @@ import ShowState from './context/show/ShowState';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 const App = () => {
-
-  // Get movie by ID
-  // const url = `https://api.themoviedb.org/3/movie/337401?api_key=${movie_db_key}&language=en-US`
-
-  //Get most popular TV Shows
-  // const url = `https://api.themoviedb.org/3/tv/popular?api_key=${movie_db_key}`
-
-  // Get TV Show by ID
-  // const url = `https://api.themoviedb.org/3/tv/62286?api_key=${movie_db_key}&language=en-US`
-
-  // Get latest TV Shows
-  //const url = `https://api.themoviedb.org/3/tv/latest?api_key=${movie_db_key}&language=en-US`
-
-
   return (
     <MovieState>
       <ShowState>
