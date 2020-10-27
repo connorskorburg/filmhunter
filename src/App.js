@@ -1,18 +1,20 @@
 import React from 'react';
 import './index.css';
-
+// movie components
 import Movies from './components/movies/Movies';
 import Movie from './components/movies/Movie';
+//show components
+import Shows from './components/shows/Shows';
 // layout components
 import Navbar from './components/layout/Navbar';
-//pages
-import Home from './components/pages/Home';
+import Home from './components/layout/Home';
 //context state
 import MovieState from './context/movie/MovieState';
+import ShowState from './context/show/ShowState';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
-function App() {
+const App = () => {
 
   // Get movie by ID
   // const url = `https://api.themoviedb.org/3/movie/337401?api_key=${movie_db_key}&language=en-US`
@@ -29,16 +31,19 @@ function App() {
 
   return (
     <MovieState>
-      <Router>
-        <div className="App">
-          <Navbar />
-          <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/movies" component={Movies} />
-            <Route exact path='/movies/:id' component={Movie} />
-          </Switch>
-        </div>
-      </Router>
+      <ShowState>
+        <Router>
+          <div className="App">
+            <Navbar />
+            <Switch>
+              <Route exact path="/" component={Home} />
+              <Route exact path="/movies" component={Movies} />
+              <Route exact path='/movies/:id' component={Movie} />
+              <Route exact path='/shows' component={Shows} />
+            </Switch>
+          </div>
+        </Router>
+      </ShowState>
     </MovieState>
   );
 }

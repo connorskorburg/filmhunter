@@ -21,12 +21,12 @@ const Movies = () => {
   }, [])
 
 
-  const onChange = (e) => {
+  const handleChange = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
   }
 
-  const onClick = (e) => {
+  const handleClick = (e) => {
     e.preventDefault();
     setLoading();
     searchMovie(query);
@@ -46,8 +46,8 @@ const Movies = () => {
     <main className="bgColor pt-2">
       <h1 className='ta-center text-secondary pt-4 pb-2 sub-heading' style={{ borderBottom: '2px solid var(--secondary)' }}>Find Films</h1>
       <div style={{ padding: '0 5%' }} >
-        <input style={inputStyle} className='mt-2' type="text" placeholder='Search...' value={query} onChange={(e) => onChange(e)} />
-        <button className="mt-2 btn btn-block btn-primary" onClick={(e) => onClick(e)}>Search</button>
+        <input style={inputStyle} className='mt-2' type="text" placeholder='Search...' value={query} onChange={(e) => handleChange(e)} />
+        <button className="mt-2 btn btn-block btn-primary" onClick={(e) => handleClick(e)}>Search</button>
       </div>
       { content}
     </main>

@@ -1,6 +1,6 @@
 import React from 'react';
-import Contact from '../layout/Contact';
-import Hero from '../layout/Hero';
+import Contact from './Contact';
+import Hero from './Hero';
 import LatestMovies from '../movies/LatestMovies';
 import LatestShows from '../shows/LatestShows';
 
