@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Show from './Show';
 import axios from 'axios';
+import ShowItem from './ShowItem'
 
 const LatestShows = () => {
 
@@ -25,7 +25,7 @@ const LatestShows = () => {
     <main className="bgColor mb-4">
       <h1 className="ta-center text-secondary pt-4 pb-2 sub-heading" style={{ borderBottom: '2px solid var(--secondary)' }}>Latest Shows</h1>
       <div className="container grid grid-col-4 gap-1 py-2">
-        {shows.map((show) => <Show key={show.id} show={show} />)}
+        {shows.map((show) => <ShowItem key={show.id} show={show} />)}
       </div>
     </main>
   )
