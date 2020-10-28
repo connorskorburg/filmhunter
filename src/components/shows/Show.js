@@ -1,32 +1,33 @@
-import React from 'react';
+import React, { useEffect, useContext } from 'react'
+import ShowContext from '../../context/show/showContext';
+import Loading from '../layout/Loading';
 
-const Movie = ({ show: { id, original_name, poster_path, first_air_date } }) => {
 
-  const hoverImg = (id) => {
-    document.querySelector(`.card-${id} h3`).style.display = 'block';
-    document.querySelector(`.card-${id} h4`).style.display = 'block';
-    document.querySelector(`.card-${id}`).style.backgroundColor = '#fff';
-    document.querySelector(`.poster-img-${id}`).style.opacity = '0.3';
-  }
+const Show = ({ match: { params: { id } } }) => {
 
-  const hoverImgClose = (id) => {
-    document.querySelector(`.card-${id} h3`).style.display = 'none';
-    document.querySelector(`.card-${id} h4`).style.display = 'none';
-    document.querySelector(`.card-${id}`).style.backgroundColor = '#114b5f';
-    document.querySelector(`.poster-img-${id}`).style.opacity = '1';
+  const showContext = useContext(ShowContext);
+
+  const { show, loading, setLoading, getShow } = showContext;
+
+  useEffect(() => {
+    setLoading();
+    getShow(id);
+    //eslint-disable-next-line
+  }, [id])
+
+  let content;
+
+  if (loading) {
+    content = <Loading />;
+  } else {
+    content = <div>{show.original_name}</div>
   }
 
   return (
-    <div className={`card bg-primary card-${id}`} onMouseEnter={() => hoverImg(id)} onMouseLeave={() => hoverImgClose(id)}>
-      <article className='card-content'>
-        <div className="card-content-inner" style={{ zIndex: '100' }}>
-          <h3 className='ta-center info'>{original_name}</h3>
-          <h4 className='ta-center mt-1 info'>Relased: {first_air_date}</h4>
-        </div>
-      </article>
-      <img className={`poster-img poster-img-${id}`} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={original_name} />
+    <div className='pt-4'>
+      {content}
     </div>
   )
 }
 
-export default Movie;
+export default Show
