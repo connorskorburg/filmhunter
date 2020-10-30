@@ -44,7 +44,8 @@ const ShowState = (props) => {
   //query for show 
   const searchShow = async (query) => {
     const response = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US&page=1&query=${query}&include_adult=false`);
-    const data = response.data;
+    const data = response.data.results;
+    console.log({ data });
     dispatch({ type: SEARCH_SHOWS, payload: data });
   }
 

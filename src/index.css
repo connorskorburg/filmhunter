@@ -470,6 +470,7 @@ li { list-style-type: none; }
   .w-40, .w-60 {
     width: 100%;
   }
+  body { padding-bottom: 3.15rem;}
   .bottom-nav {
     width: 100%;
     position: fixed;

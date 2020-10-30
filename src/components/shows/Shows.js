@@ -29,6 +29,8 @@ const Shows = () => {
 
 	let content;
 
+	console.log({ shows })
+
 	if (loading) {
 		content = <Loading />;
 	} else {
