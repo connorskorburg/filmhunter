@@ -3,13 +3,8 @@ import React, { Fragment } from 'react'
 const ProductionCompanies = ({ production_companies }) => {
   const checkComanies = (production_companies) => {
     if (production_companies !== undefined) {
-      if (production_companies.length > 0) {
-        return production_companies;
-      }
-    }
-    else {
-      return false;
-    }
+      return production_companies.length > 0 ? production_companies : false;
+    } else { return false; }
   }
   return (
     <Fragment>

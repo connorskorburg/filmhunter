@@ -47,6 +47,7 @@ const MovieState = (props) => {
     const response = await axios.get(`https://api.themoviedb.org/3/movie/${id}?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`);
     console.log('GET MOVIE RESPONSE', response.data);
     const data = response.data;
+    console.log({ data })
     dispatch({ type: GET_MOVIE, payload: data })
   }
 

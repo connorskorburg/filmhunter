@@ -3,13 +3,8 @@ import React, { Fragment } from 'react'
 const Seasons = ({ seasons }) => {
   const checkSeasons = (seasons) => {
     if (seasons !== undefined) {
-      if (seasons.length > 0) {
-        return seasons;
-      }
-    }
-    else {
-      return false;
-    }
+      return seasons.length > 0 ? seasons : false;
+    } else { return false; }
   }
   return (
     <Fragment>

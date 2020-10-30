@@ -21,7 +21,6 @@ const ShowState = (props) => {
   const fetchLatestShows = async () => {
     const response = await axios.get(`https://api.themoviedb.org/3/tv/latest?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`);
     const data = response.data.results.filter((r) => r['poster_path'] !== null);;
-    console.log(data)
     dispatch({ type: GET_LATEST_SHOWS, payload: data });
   }
 
@@ -29,7 +28,6 @@ const ShowState = (props) => {
   const fetchPopularShows = async () => {
     const response = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}`);
     const data = response.data.results.filter((r) => r['poster_path'] !== null);
-    console.log(data);
     dispatch({ type: SEARCH_SHOWS, payload: data });
   }
 
@@ -37,7 +35,6 @@ const ShowState = (props) => {
   const getShow = async (id) => {
     const response = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`)
     const data = response.data;
-    console.log("GET SHOW:", data);
     dispatch({ type: GET_SHOW, payload: data });
   }
 

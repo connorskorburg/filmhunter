@@ -3,13 +3,8 @@ import React, { Fragment } from 'react'
 const Networks = ({ networks }) => {
   const checkNetworks = (networks) => {
     if (networks !== undefined) {
-      if (networks.length > 0) {
-        return networks;
-      }
-    }
-    else {
-      return false;
-    }
+      return networks.length > 0 ? networks : false;
+    } else { return false; }
   }
   return (
     <Fragment>
