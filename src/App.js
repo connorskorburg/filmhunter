@@ -5,7 +5,7 @@ import Movies from './components/movies/Movies';
 import Movie from './components/movies/Movie';
 //show components
 import Shows from './components/shows/Shows';
-// import Show from './components/shows/Show';
+import Show from './components/shows/Show';
 // layout components
 import Navbar from './components/layout/Navbar';
 import Home from './components/layout/Home';
@@ -27,7 +27,7 @@ const App = () => {
               <Route exact path="/movies" component={Movies} />
               <Route exact path='/movies/:id' component={Movie} />
               <Route exact path='/shows' component={Shows} />
-              {/* <Route exact path='/shows/:id' component={Show} /> */}
+              <Route exact path='/shows/:id' component={Show} />
             </Switch>
           </div>
         </Router>

@@ -2,8 +2,8 @@ import React, { useEffect, useContext } from 'react';
 import MovieContext from '../../context/movie/movieContext';
 import Loading from '../layout/Loading';
 import ProductionCompanies from './details/ProductionCompanies';
-import RatingStatus from './details/RatingStatus';
-import Homepage from './details/HomePage';
+import RatingStatus from '../layout/RatingStatus';
+import MovieHomepage from './details/MovieHomepage';
 
 const Movie = ({ match: { params: { id } } }) => {
 	const movieContext = useContext(MovieContext);
@@ -52,7 +52,7 @@ const Movie = ({ match: { params: { id } } }) => {
 					</article>
 					<article className="card shadow-4 bg-primary-light b-dotted-primary">
 						<ProductionCompanies production_companies={production_companies} />
-						<Homepage original_title={original_title} homepage={homepage} />
+						<MovieHomepage original_title={original_title} homepage={homepage} />
 						<RatingStatus status={status} vote_average={vote_average} />
 					</article>
 				</section>

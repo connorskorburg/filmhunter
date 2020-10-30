@@ -197,6 +197,7 @@ li { list-style-type: none; }
 /* text & font */
 .text-white { color: var(--white);}
 .text-black { color: var(--black);}
+.text-bg { color: var(--bgColor);}
 .text-primary { color: var(--primary);}
 .text-primary-light { color: var(--primary-light);}
 .text-primary-dark { color: var(--primary-dark);}

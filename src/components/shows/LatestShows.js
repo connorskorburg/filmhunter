@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import ShowItem from './ShowItem'
+import ShowContext from '../../context/show/showContext';
 
 const LatestShows = () => {
 
   const [shows, setShows] = useState([])
+
+  const showContext = useContext(ShowContext);
 
   const movie_db_key = process.env.REACT_APP_MOVIE_DB_KEY;
 

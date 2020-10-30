@@ -5,9 +5,10 @@ const ProductionCompanies = ({ production_companies }) => {
     if (production_companies !== undefined) {
       if (production_companies.length > 0) {
         return production_companies;
-      } else {
-        return false;
       }
+    }
+    else {
+      return false;
     }
   }
   return (
