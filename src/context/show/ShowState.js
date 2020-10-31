@@ -19,8 +19,8 @@ const ShowState = (props) => {
 
   //fetch latest TV Shows 
   const fetchLatestShows = async () => {
-    const response = await axios.get(`https://api.themoviedb.org/3/tv/latest?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`);
-    const data = response.data.results.filter((r) => r['poster_path'] !== null);;
+    const response = await axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`);
+    const data = response.data.results.filter((r) => r['poster_path'] !== null);
     dispatch({ type: GET_LATEST_SHOWS, payload: data });
   }
 
@@ -42,7 +42,6 @@ const ShowState = (props) => {
   const searchShow = async (query) => {
     const response = await axios.get(`https://api.themoviedb.org/3/search/tv?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US&page=1&query=${query}&include_adult=false`);
     const data = response.data.results;
-    console.log({ data });
     dispatch({ type: SEARCH_SHOWS, payload: data });
   }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import notFound from '../layout/images/notFound.jpg'
 
 const ShowItem = ({ show: { id, original_name, first_air_date, poster_path } }) => {
 
@@ -25,7 +26,11 @@ const ShowItem = ({ show: { id, original_name, first_air_date, poster_path } }) 
           <h4 className="ta-center mt-1 info">First Aired: {first_air_date}</h4>
         </div>
       </article>
-      <img className={`poster-img poster-img-${id}`} src={`https://image.tmdb.org/t/p/original/${poster_path}`} alt={original_name} />
+      <img
+        className={`w-100 d-block ml-auto poster-img poster-img-${id}`}
+        src={poster_path ? `https://image.tmdb.org/t/p/original/${poster_path}` : notFound}
+        alt={original_name}
+      />
     </Link>
   )
 }

@@ -1,35 +1,35 @@
-import React, { useState, useEffect, useContext } from 'react';
-import axios from 'axios';
+import React, { useEffect, useContext } from 'react';
 import ShowItem from './ShowItem'
+import Loading from '../layout/Loading';
 import ShowContext from '../../context/show/showContext';
 
 const LatestShows = () => {
-
-  const [shows, setShows] = useState([])
-
   const showContext = useContext(ShowContext);
 
-  const movie_db_key = process.env.REACT_APP_MOVIE_DB_KEY;
-
-  const url = `https://api.themoviedb.org/3/tv/airing_today?api_key=${movie_db_key}&language=en-US`;
-
-  const fetchLatestShows = async (url) => {
-    const response = await axios(url);
-    const res = response.data.results;
-    setShows(res.filter((r) => r['poster_path'] !== null));
-  }
+  const { fetchLatestShows, latestShows, loading, setLoading } = showContext;
 
   useEffect(() => {
+    setLoading();
+    fetchLatestShows();
+    //eslint-disable-next-line
+  }, [])
 
-    fetchLatestShows(url);
-  }, [url])
+  let content;
+
+  if (loading) {
+    content = <Loading />
+  } else {
+    content = (
+      <div className="container grid grid-col-4 gap-1 py-2">
+        {latestShows.map((show) => <ShowItem key={show.id} show={show} />)}
+      </div>
+    )
+  }
 
   return (
     <main className="bgColor mb-4">
       <h1 className="ta-center text-secondary pt-4 pb-2 sub-heading" style={{ borderBottom: '2px solid var(--secondary)' }}>Latest Shows</h1>
-      <div className="container grid grid-col-4 gap-1 py-2">
-        {shows.map((show) => <ShowItem key={show.id} show={show} />)}
-      </div>
+      {content}
     </main>
   )
 }
