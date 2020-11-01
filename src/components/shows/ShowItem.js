@@ -34,6 +34,5 @@ const ShowItem = ({ show: { id, original_name, first_air_date, poster_path } }) 
     </Link>
   )
 }
-//https://api.themoviedb.org/3/tv/{tv_id}/images?api_key=6e4919c43a2a6cc26be930905b8a4858&language=en-US
 
 export default ShowItem
