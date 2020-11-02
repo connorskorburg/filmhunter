@@ -40,7 +40,7 @@ const Movie = ({ match: { params: { id } } }) => {
 	} else if (movie === false) {
 		content = <div className="container pt-1">
 			<h1 className="ta-center text-head text-primary">404 Movie Not Found, return to
-				<Link className='btn btn-secondary text-white ml-1' to='/shows'>Movies</Link>
+				<Link className='btn btn-secondary text-white ml-1' to='/movies'>Movies</Link>
 			</h1>
 		</div>
 	} else {

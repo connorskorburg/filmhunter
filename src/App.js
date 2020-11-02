@@ -12,6 +12,8 @@ import Home from './components/layout/Home';
 //context state
 import MovieState from './context/movie/MovieState';
 import ShowState from './context/show/ShowState';
+// error handler page
+import Error from './components/layout/Error';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
@@ -28,6 +30,7 @@ const App = () => {
               <Route exact path='/movies/:id' component={Movie} />
               <Route exact path='/shows' component={Shows} />
               <Route exact path='/shows/:id' component={Show} />
+              <Error />
             </Switch>
           </div>
         </Router>
