@@ -22,16 +22,28 @@ const Shows = () => {
 		e.preventDefault();
 		setQuery(e.target.value);
 	};
-	const handleClick = (e) => {
+	const handleSubmit = (e) => {
 		e.preventDefault();
-		searchShow(query);
+		setLoading();
+		if (query === '') {
+			fetchPopularShows();
+		} else {
+			searchShow(query);
+			setQuery('');
+		}
 	};
 
 	let content;
 
 	if (loading) {
 		content = <Loading />;
-	} else {
+	}
+	else if (shows.length === 0) {
+		content = <div className="container pt-4">
+			<h1 className='ta-center text-head text-primary'>No Results Found!</h1>
+		</div>
+	}
+	else {
 		content = (
 			<div className="container grid grid-col-4 gap-1 py-2">
 				{shows.map((show) => <ShowItem key={show.id} show={show} />)}
@@ -47,7 +59,7 @@ const Shows = () => {
 			>
 				Find TV Shows
 			</h1>
-			<div style={{ padding: '0 5%' }}>
+			<form onSubmit={(e) => handleSubmit(e)} style={{ padding: '0 5%' }}>
 				<input
 					style={inputStyle}
 					className="mt-2"
@@ -56,10 +68,10 @@ const Shows = () => {
 					value={query}
 					onChange={(e) => handleChange(e)}
 				/>
-				<button className="mt-2 btn btn-block btn-primary" onClick={(e) => handleClick(e)}>
+				<button className="mt-2 btn btn-block btn-primary">
 					Search
 				</button>
-			</div>
+			</form>
 			{content}
 		</main>
 	);

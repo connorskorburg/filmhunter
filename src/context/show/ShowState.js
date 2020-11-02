@@ -33,9 +33,15 @@ const ShowState = (props) => {
 
   //fetch show by ID
   const getShow = async (id) => {
-    const response = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`)
-    const data = response.data;
-    dispatch({ type: GET_SHOW, payload: data });
+    console.log('get Show')
+    try {
+      const response = await axios.get(`https://api.themoviedb.org/3/tv/${id}?api_key=${process.env.REACT_APP_MOVIE_DB_KEY}&language=en-US`)
+      const data = response.data;
+      dispatch({ type: GET_SHOW, payload: data });
+    } catch (error) {
+      console.log({ error });
+      dispatch({ type: GET_SHOW, payload: false })
+    }
   }
 
   //query for show 

@@ -5,12 +5,16 @@ import RatingStatus from '../layout/RatingStatus';
 import Networks from './details/Networks';
 import ShowHomepage from './details/ShowHomepage';
 import Seasons from './details/Seasons';
+import { Link } from 'react-router-dom';
 import notFound from '../layout/images/notFound.jpg';
 
 const Show = ({ match: { params: { id } } }) => {
 	const showContext = useContext(ShowContext);
+	console.log({ id })
 
 	const { show, loading, setLoading, getShow } = showContext;
+
+	console.log({ show })
 
 	useEffect(
 		() => {
@@ -18,7 +22,7 @@ const Show = ({ match: { params: { id } } }) => {
 			getShow(id);
 		},
 		//eslint-disable-next-line
-		[ id ]
+		[id]
 	);
 
 	const { original_name, poster_path, networks, overview, seasons, status, vote_average, homepage } = show;
@@ -27,7 +31,14 @@ const Show = ({ match: { params: { id } } }) => {
 
 	if (loading) {
 		content = <Loading />;
-	} else {
+	} else if (show === false) {
+		content = <div className="container pt-1">
+			<h1 className="ta-center text-head text-primary">404 Show Not Found, return to
+				<Link className='btn btn-secondary text-white ml-1' to='/shows'>TV Shows</Link>
+			</h1>
+		</div>
+	}
+	else {
 		content = (
 			<div className="container flex pt-1 text-primary movie-card">
 				<section className="mb-1 w-60">

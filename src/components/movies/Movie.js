@@ -4,6 +4,8 @@ import Loading from '../layout/Loading';
 import ProductionCompanies from './details/ProductionCompanies';
 import RatingStatus from '../layout/RatingStatus';
 import MovieHomepage from './details/MovieHomepage';
+import notFound from '../layout/images/notFound.jpg'
+import { Link } from 'react-router-dom';
 
 const Movie = ({ match: { params: { id } } }) => {
 	const movieContext = useContext(MovieContext);
@@ -35,6 +37,12 @@ const Movie = ({ match: { params: { id } } }) => {
 
 	if (loading) {
 		content = <Loading />;
+	} else if (movie === false) {
+		content = <div className="container pt-1">
+			<h1 className="ta-center text-head text-primary">404 Movie Not Found, return to
+				<Link className='btn btn-secondary text-white ml-1' to='/shows'>Movies</Link>
+			</h1>
+		</div>
 	} else {
 		content = (
 			<div className="container flex pt-1 text-primary movie-card">
@@ -59,7 +67,7 @@ const Movie = ({ match: { params: { id } } }) => {
 				<section className="pb-1 img-section ml-auto w-40">
 					<img
 						className={`w-100 d-block ml-auto poster-img poster-img-${id}`}
-						src={`https://image.tmdb.org/t/p/original/${poster_path}`}
+						src={poster_path ? `https://image.tmdb.org/t/p/original/${poster_path}` : notFound}
 						alt={original_title}
 					/>
 				</section>

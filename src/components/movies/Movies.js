@@ -20,22 +20,32 @@ const Movies = () => {
     //eslint-disable-next-line
   }, [])
 
+  console.log({ movies });
 
   const handleChange = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
   }
 
-  const handleClick = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     setLoading();
-    searchMovie(query);
+    if (query === '') {
+      fetchPopularMovies();
+    } else {
+      searchMovie(query);
+      setQuery('');
+    }
   }
 
   let content;
 
   if (loading) {
     content = <Loading />;
+  } else if (movies.length === 0) {
+    content = <div className="container pt-4">
+      <h1 className='ta-center text-head text-primary'>No Results Found!</h1>
+    </div>
   } else {
     content = <div className="container grid grid-col-4 gap-1 py-2">
       {movies.map((movie) => <MovieItem key={movie.id} movie={movie} />)}
@@ -45,10 +55,10 @@ const Movies = () => {
   return (
     <main className="bgColor pt-2">
       <h1 className='ta-center text-secondary pt-4 pb-2 sub-heading' style={{ borderBottom: '2px solid var(--secondary)' }}>Find Films</h1>
-      <div style={{ padding: '0 5%' }} >
+      <form handleSubmit={(e) => handleSubmit(e)} style={{ padding: '0 5%' }} >
         <input style={inputStyle} className='mt-2' type="text" placeholder='Search...' value={query} onChange={(e) => handleChange(e)} />
-        <button className="mt-2 btn btn-block btn-primary" onClick={(e) => handleClick(e)}>Search</button>
-      </div>
+        <button className="mt-2 btn btn-block btn-primary">Search</button>
+      </form>
       { content}
     </main>
   )
