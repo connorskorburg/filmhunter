@@ -636,7 +636,7 @@ li {
 }
 
 .card-content-inner {
-  top: 50%;
+  top: 25%;
   bottom: 1rem;
   position: relative;
 }
