@@ -12,7 +12,6 @@ const Movie = ({ match: { params: { id } } }) => {
 
 	const { movie, loading, setLoading, getMovie } = movieContext;
 
-	console.log(movie);
 	useEffect(
 		() => {
 			setLoading();

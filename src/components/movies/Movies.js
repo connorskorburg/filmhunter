@@ -20,8 +20,6 @@ const Movies = () => {
     //eslint-disable-next-line
   }, [])
 
-  console.log({ movies });
-
   const handleChange = (e) => {
     e.preventDefault();
     setQuery(e.target.value);
@@ -55,7 +53,7 @@ const Movies = () => {
   return (
     <main className="bgColor pt-2">
       <h1 className='ta-center text-secondary pt-4 pb-2 sub-heading' style={{ borderBottom: '2px solid var(--secondary)' }}>Find Films</h1>
-      <form handleSubmit={(e) => handleSubmit(e)} style={{ padding: '0 5%' }} >
+      <form onSubmit={(e) => handleSubmit(e)} style={{ padding: '0 5%' }} >
         <input style={inputStyle} className='mt-2' type="text" placeholder='Search...' value={query} onChange={(e) => handleChange(e)} />
         <button className="mt-2 btn btn-block btn-primary">Search</button>
       </form>

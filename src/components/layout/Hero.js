@@ -18,8 +18,8 @@ const Hero = () => {
           <img src={hero} alt="" className='hero-img' />
           <article className="hero-sm">
             <p className="text-secondary-dark font-bold my-2 ta-center font-l">Search for most popular and latest Movies and Television shows</p>
-            <Link to='/movies' className="btn btn-block btn-secondary mb-1">Movies</Link>
-            <Link to='/shows' className="btn btn-block btn-primary">TV Shows</Link>
+            <Link to='/movies' className="btn ta-center btn-block btn-secondary mb-1">Movies</Link>
+            <Link to='/shows' className="btn ta-center btn-block btn-primary">TV Shows</Link>
           </article>
         </section>
       </main>

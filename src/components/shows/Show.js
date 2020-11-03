@@ -10,11 +10,9 @@ import notFound from '../layout/images/notFound.jpg';
 
 const Show = ({ match: { params: { id } } }) => {
 	const showContext = useContext(ShowContext);
-	console.log({ id })
 
 	const { show, loading, setLoading, getShow } = showContext;
 
-	console.log({ show })
 
 	useEffect(
 		() => {
